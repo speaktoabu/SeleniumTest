@@ -27,15 +27,9 @@ public class SelTest {
 		driverff.get("http://google.com");
 		
 		driverff.quit();
+	
 		
-		Capabilities capabilitiesSaucEdge = DesiredCapabilities.edge();
-		WebDriver driverSauceEdge = new RemoteWebDriver(new URL(gridUrl+"/wd/hub"), capabilitiesSaucEdge);
-		
-		driverSauceEdge.get("http://google.com");
-		
-		driverSauceEdge.quit();
-		
-		Capabilities capabilitiesSauceSafari = DesiredCapabilities.edge();
+		Capabilities capabilitiesSauceSafari = DesiredCapabilities.safari();
 		WebDriver driverSauceSafari = new RemoteWebDriver(new URL(gridUrl+"/wd/hub"), capabilitiesSauceSafari);
 		
 		driverSauceSafari.get("http://google.com");
