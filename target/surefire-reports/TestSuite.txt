@@ -1,4 +1,15 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 55.834 s - in TestSuite
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 31.163 s <<< FAILURE! - in TestSuite
+test(com.newt.test.SelTest)  Time elapsed: 30.099 s  <<< FAILURE!
+org.openqa.selenium.WebDriverException: 
+Error forwarding the new session cannot find : Capabilities {acceptInsecureCerts: true, browserName: firefox, version: }
+Command duration or timeout: 813 milliseconds
+	at com.newt.test.SelTest.test(SelTest.java:25)
+Caused by: org.openqa.selenium.WebDriverException: 
+Error forwarding the new session cannot find : Capabilities {acceptInsecureCerts: true, browserName: firefox, version: }
+Build info: version: '3.12.0', revision: '7c6e0b3', time: '2018-05-08T14:04:26.12Z'
+System info: host: 'NEWT-PBS07', ip: '169.254.151.134', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '9.0.1'
+Driver info: driver.version: unknown
+

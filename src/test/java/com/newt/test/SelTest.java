@@ -14,13 +14,15 @@ public class SelTest {
 	@Test
 	public void test() throws MalformedURLException
 	{
+		String gridUrl = System.getProperty("GridUrl");
+
 		Capabilities capabilities = DesiredCapabilities.chrome();
-		WebDriver driver = new RemoteWebDriver(new URL("http://10.0.16.9:4444/wd/hub"), capabilities);
+		WebDriver driver = new RemoteWebDriver(new URL(gridUrl+"/wd/hub"), capabilities);
 		
 		driver.get("http://google.com");
 		driver.quit();
 		Capabilities capabilitiesff = DesiredCapabilities.firefox();
-		WebDriver driverff = new RemoteWebDriver(new URL("http://10.0.16.9:4444/wd/hub"), capabilitiesff);
+		WebDriver driverff = new RemoteWebDriver(new URL(gridUrl+"/wd/hub"), capabilitiesff);
 		
 		driverff.get("http://google.com");
 		
