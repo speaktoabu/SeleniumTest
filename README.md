@@ -3,7 +3,7 @@
 
 
 * Current issue we are facing is that for selenium testing we need to provision many virtual machines to test different capabilities.
-* To solve this I've come with solution using Docker and Jenkins
+* To solve this we can use the following setup using Docker and Jenkins. 
 
 ![Selenium](https://github.com/speaktoabu/SeleniumTest/blob/master/Selenium_images/01.png)
 
