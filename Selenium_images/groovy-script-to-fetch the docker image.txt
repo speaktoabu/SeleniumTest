@@ -1,0 +1,29 @@
+import groovy.json.JsonSlurper;
+import java.util.regex.*;
+
+
+String REGEXC= "Google Chrome:(.*?)\r";
+String REGEXF = "Mozilla Firefox:(.*?)\r";
+List<String> versions = new ArrayList<String>()
+def versionsObjectRaw =  new URL("https://api.github.com/repos/SeleniumHQ/docker-selenium/releases").getText()
+def jsonSlurper = new JsonSlurper()
+def versionsJsonObject = jsonSlurper.parseText(versionsObjectRaw)
+
+int i=0;
+
+versionsJsonObject.each {
+  def INPUT = it.body;
+  Matcher matcherChrome = Pattern.compile(REGEXC).matcher(INPUT);
+  Matcher matcherFF = Pattern.compile(REGEXF).matcher(INPUT);
+  String chromeVersion ="";
+  String ffVersion ="";
+  if(matcherChrome.find())
+    chromeVersion = matcherChrome.group(1).replace("*", "").trim();
+
+  if(matcherFF.find())
+    ffVersion = matcherFF.group(1).replace("*", "").trim();
+
+  if(!chromeVersion.isEmpty() && !ffVersion.isEmpty())
+    versions.add(it.tag_name+":( ChromeVersion: "+chromeVersion+" & FirefoxVersion: "+ffVersion+" )");
+}
+return versions
